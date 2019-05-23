@@ -18,12 +18,6 @@ class MyDatabaseOpenHelper private constructor(ctx: Context) : ManagedSQLiteOpen
 
     override fun onCreate(db: SQLiteDatabase) {
         // Here you create tables
-//        db.execSQL(
-//            "create table IF NOT EXISTS Todo (" +
-//                    "id integer primary key autoincrement," +
-//                    "name varchar," +
-//                    "end_time datetime" +
-//                    ");")
         db.createTable("Todo", true,
             "id" to INTEGER + PRIMARY_KEY + UNIQUE,
             "name" to TEXT,
