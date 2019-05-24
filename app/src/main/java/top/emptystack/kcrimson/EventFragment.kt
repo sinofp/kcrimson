@@ -6,15 +6,10 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.db.delete
-import org.jetbrains.anko.support.v4.toast
-import java.util.*
 
 class EventFragment : Fragment() {
 

@@ -1,5 +1,6 @@
 package top.emptystack.kcrimson
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -16,10 +17,11 @@ class MyEventRecyclerViewAdapter(
         return ViewHolder(EventUI().createView(AnkoContext.create(parent.context, parent)))
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues[position]
         holder.name.text = item.name
-        holder.ddl.text = item.ddl.toString()
+        holder.ddl.text = "距离DDL只剩${item.ddl}天了！"
     }
 
     override fun getItemCount(): Int = mValues.size

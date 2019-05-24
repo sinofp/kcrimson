@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-
 import kotlinx.android.synthetic.main.activity_new_event.*
 import kotlinx.android.synthetic.main.content_new_event.*
 import org.jetbrains.anko.db.insert
