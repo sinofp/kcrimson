@@ -18,18 +18,18 @@ class MyEventRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues[position]
-        holder.mIdView.text = item.name
-        holder.mContentView.text = item.ddl.toString()
+        holder.name.text = item.name
+        holder.ddl.text = item.ddl.toString()
     }
 
     override fun getItemCount(): Int = mValues.size
 
-    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        val mIdView: TextView =itemView.findViewById(EventUI.tvTitleId)// mView.item_number
-        val mContentView: TextView = itemView.findViewById(EventUI.tvYearId)// mView.content
+    inner class ViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
+        val name: TextView =itemView.findViewById(EventUI.tvName)// mView.item_number
+        val ddl: TextView = itemView.findViewById(EventUI.tvDDL)// mView.content
 
         override fun toString(): String {
-            return super.toString() + " '" + mContentView.text + "'"
+            return super.toString() + " '" + ddl.text + "'"
         }
     }
 
@@ -44,8 +44,8 @@ class MyEventRecyclerViewAdapter(
 class EventUI : AnkoComponent<ViewGroup> {
 
     companion object {
-        val tvTitleId = 1
-        val tvYearId = 2
+        val tvName = 1
+        val tvDDL = 2
     }
 
     override fun createView(ui: AnkoContext<ViewGroup>): View = with(ui) {
@@ -54,14 +54,14 @@ class EventUI : AnkoComponent<ViewGroup> {
             padding = dip(16)
 
             textView {
-                id = tvTitleId
+                id = tvName
                 layoutParams = LinearLayout.LayoutParams(matchParent, wrapContent)
                 textSize = 16f
                 textColor = Color.BLACK
             }
 
             textView {
-                id = tvYearId
+                id = tvDDL
                 layoutParams = LinearLayout.LayoutParams(matchParent, wrapContent)
                 textSize = 14f
             }

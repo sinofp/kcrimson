@@ -6,5 +6,6 @@
     <string name="time_picker_hint">请选择每日提醒时间</string>
     <string name="notification_enable">启用每日优先待办提醒</string>
     <string name="todo_name_hint">这天前我要完成……</string>
-
+    <string name="title_activity_new_event">NewEventActivity</string>
+    <string name="no_data">当前没有待办事项</string>
 </resources>

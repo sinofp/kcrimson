@@ -1,12 +1,22 @@
 package top.emptystack.kcrimson
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.db.delete
+import org.jetbrains.anko.db.rowParser
+import org.jetbrains.anko.db.select
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
+import java.nio.file.FileSystem
+import java.nio.file.FileSystems
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,5 +55,7 @@ class MainActivity : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         fab_add.hide()
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
+        Log.d("backup_path", getDatabasePath("Todo").toString())
+        Log.d("backup_path", packageName + "_preferences")
     }
 }

@@ -1,6 +1,7 @@
 package top.emptystack.kcrimson
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 
@@ -17,26 +18,29 @@ class NewEventActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
 
-        val now = Calendar.getInstance()
+        val c = Calendar.getInstance()
 
-        datePicker.minDate = now.timeInMillis
+        datePicker.minDate = c.timeInMillis
         datePicker.setOnDateChangedListener { view, year, monthOfYear, dayOfMonth ->
 //            toast("$year/${monthOfYear+1}/$dayOfMonth")
             //在recyclerview中计算当前时间时，会把hourOfDay、minute、second都赋0，但还有最后的微秒之类的，
             //这里如果给它们都赋0的话，可能会因为存储时微秒比读取时微秒小一点点而造成相减后整除86400000的误差
             //比如1558656000420-1558569600821/86400000=0，但其实得0.9999953587962963
-            now.set(year, monthOfYear, dayOfMonth, 1, 0, 0)
+            c.set(year, monthOfYear, dayOfMonth, 1, 0, 0)
         }
 
         fab.setOnClickListener { view ->
-            Log.d("sql", "inserting!")
-            val name = todo_name.text.toString()
-            val ddl = now.timeInMillis//.toInt()
-            database.use {
-                insert("Todo", "name" to name, "ddl" to ddl)
+            if (c.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) {
+                Snackbar.make(view, "今日事今日毕！", Snackbar.LENGTH_SHORT).show()
+            } else {
+                val name = todo_name.text.toString()
+                val ddl = c.timeInMillis//.toInt()
+                Log.d("sql", "name: $name, ddl: $ddl")
+                database.use {
+                    insert("Todo", "name" to name, "ddl" to ddl)
+                }
+                this.finish()
             }
-            this.finish()
         }
     }
-
 }
