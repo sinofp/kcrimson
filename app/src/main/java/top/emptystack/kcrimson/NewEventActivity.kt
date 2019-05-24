@@ -7,7 +7,6 @@ import android.util.Log
 import kotlinx.android.synthetic.main.activity_new_event.*
 import kotlinx.android.synthetic.main.content_new_event.*
 import org.jetbrains.anko.db.insert
-import org.jetbrains.anko.toast
 import java.util.*
 
 class NewEventActivity : AppCompatActivity() {
@@ -22,7 +21,7 @@ class NewEventActivity : AppCompatActivity() {
 
         datePicker.minDate = now.timeInMillis
         datePicker.setOnDateChangedListener { view, year, monthOfYear, dayOfMonth ->
-            toast("$year/${monthOfYear+1}/$dayOfMonth")
+//            toast("$year/${monthOfYear+1}/$dayOfMonth")
             //在recyclerview中计算当前时间时，会把hourOfDay、minute、second都赋0，但还有最后的微秒之类的，
             //这里如果给它们都赋0的话，可能会因为存储时微秒比读取时微秒小一点点而造成相减后整除86400000的误差
             //比如1558656000420-1558569600821/86400000=0，但其实得0.9999953587962963
