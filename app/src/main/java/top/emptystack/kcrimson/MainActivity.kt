@@ -21,9 +21,11 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.navigation_dashboard -> {
                 fab_add.hide()
+                selectedFragment = SettingFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, selectedFragment).commit()
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_notifications -> {
+            R.id.navigation_viewlist -> {
                 fab_add.show()
                 fab_add.onClick {
                     startActivity<NewEventActivity>()
@@ -42,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         fab_add.hide()
-
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
     }
 }
