@@ -53,10 +53,6 @@ class EventFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        refDate()
-    }
-
-    fun refDate() {
         with(view as RecyclerView) {
             val events = getStoredEvents(context)
             adapter = MyEventRecyclerViewAdapter(events)
