@@ -31,7 +31,6 @@ internal class NotificationHelper
         channel.lightColor = Color.GREEN
         channel.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
         manager.createNotificationChannel(channel)
-
     }
 
     /**
@@ -59,8 +58,6 @@ internal class NotificationHelper
             .setAutoCancel(true)
     }
 
-
-
     /**
      * Send a notification.
      * @param id The ID of the notification
@@ -77,7 +74,6 @@ internal class NotificationHelper
      */
     private val smallIcon: Int
         get() = android.R.drawable.stat_notify_chat
-
 
     companion object {
         val PRIMARY_CHANNEL = "default"

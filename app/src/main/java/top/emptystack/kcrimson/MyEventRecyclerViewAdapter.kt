@@ -27,8 +27,8 @@ class MyEventRecyclerViewAdapter(
     override fun getItemCount(): Int = mValues.size
 
     inner class ViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
-        val name: TextView =itemView.findViewById(EventUI.tvName)// mView.item_number
-        val ddl: TextView = itemView.findViewById(EventUI.tvDDL)// mView.content
+        val name: TextView = itemView.findViewById(EventUI.tvName) // mView.item_number
+        val ddl: TextView = itemView.findViewById(EventUI.tvDDL) // mView.content
 
         override fun toString(): String {
             return super.toString() + " '" + ddl.text + "'"

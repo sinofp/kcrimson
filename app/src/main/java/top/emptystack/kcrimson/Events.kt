@@ -8,7 +8,7 @@ import org.jetbrains.anko.db.select
 import java.util.*
 import kotlin.collections.ArrayList
 
-data class Event(val name:String, val ddl: Long)
+data class Event(val name: String, val ddl: Long)
 
 fun getStoredEvents(context: Context?): List<Event> {
     val events = ArrayList<Event>()
@@ -26,7 +26,7 @@ fun getStoredEvents(context: Context?): List<Event> {
             if (savedTime < currentTime) {
                 delete("Todo", "name = {deletedName}", "deletedName" to raw.first)
             } else {
-                events.add(Event(raw.first, (savedTime - currentTime)/86400000))
+                events.add(Event(raw.first, (savedTime - currentTime) / 86400000))
             }
         }
     }

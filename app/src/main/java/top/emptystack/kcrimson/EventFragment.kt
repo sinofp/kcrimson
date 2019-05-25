@@ -16,7 +16,8 @@ class EventFragment : Fragment() {
     private var columnCount = 1
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_event_list, container, false)
@@ -29,7 +30,7 @@ class EventFragment : Fragment() {
                     else -> GridLayoutManager(context, columnCount)
                 }
 
-                //左滑删除事件
+                // 左滑删除事件
                 val swipeHandler = object : SwipeToDeleteCallback(context) {
                     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                         val adapter = adapter as MyEventRecyclerViewAdapter

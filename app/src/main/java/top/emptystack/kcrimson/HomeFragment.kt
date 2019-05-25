@@ -18,10 +18,10 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 import kotlin.collections.ArrayList
 
-
 class HomeFragment : Fragment() {
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -46,8 +46,8 @@ class HomeFragment : Fragment() {
             tv_nodata.visibility = View.INVISIBLE
             pieChart.visibility = View.VISIBLE
             for (event in events) {
-                Log.d("chart", "value:${1/event.ddl.toFloat()}, label:${event.name}")
-                entries.add(PieEntry(1/event.ddl.toFloat(), event.name))
+                Log.d("chart", "value:${1 / event.ddl.toFloat()}, label:${event.name}")
+                entries.add(PieEntry(1 / event.ddl.toFloat(), event.name))
             }
             val closest = entries.last().label
             val set = PieDataSet(entries, "事件名")
