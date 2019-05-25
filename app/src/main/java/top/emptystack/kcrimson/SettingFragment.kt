@@ -65,7 +65,7 @@ class SettingFragment : Fragment() {
         }
     }
 
-    fun startAlarmAt(hour: Int, minute: Int) {
+    private fun startAlarmAt(hour: Int, minute: Int) {
 
         val c = Calendar.getInstance()
         c.set(Calendar.HOUR_OF_DAY, hour)
@@ -84,7 +84,7 @@ class SettingFragment : Fragment() {
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, c.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
     }
 
-    fun cancelAlarm() {
+    private fun cancelAlarm() {
         val intent = Intent(context, AlarmReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
         val alarmManager = activity!!.getSystemService(ALARM_SERVICE) as AlarmManager
