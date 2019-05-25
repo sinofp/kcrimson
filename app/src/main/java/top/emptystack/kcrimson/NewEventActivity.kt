@@ -16,7 +16,6 @@ class NewEventActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_event)
         setSupportActionBar(toolbar)
 
-
         val c = Calendar.getInstance()
 
         datePicker.minDate = c.timeInMillis
@@ -32,13 +31,17 @@ class NewEventActivity : AppCompatActivity() {
             if (c.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) {
                 Snackbar.make(view, "今日事今日毕！", Snackbar.LENGTH_SHORT).show()
             } else {
-                val name = todo_name.text.toString()
-                val ddl = c.timeInMillis//.toInt()
-                Log.d("sql", "name: $name, ddl: $ddl")
-                database.use {
-                    insert("Todo", "name" to name, "ddl" to ddl)
+                if (todo_name.text.toString().isBlank()) {
+                    Snackbar.make(view, "请输入事件名！", Snackbar.LENGTH_SHORT).show()
+                } else {
+                    val name = todo_name.text.toString()
+                    val ddl = c.timeInMillis//.toInt()
+                    Log.d("sql", "name: $name, ddl: $ddl")
+                    database.use {
+                        insert("Todo", "name" to name, "ddl" to ddl)
+                    }
+                    this.finish()
                 }
-                this.finish()
             }
         }
     }
