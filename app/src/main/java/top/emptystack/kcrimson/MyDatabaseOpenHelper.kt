@@ -24,7 +24,7 @@ class MyDatabaseOpenHelper private constructor(ctx: Context) : ManagedSQLiteOpen
             "name" to TEXT,
             "ddl" to INTEGER)
         val c = Calendar.getInstance()
-        c.add(Calendar.DAY_OF_YEAR, 1)
+        c.add(Calendar.DAY_OF_YEAR, 5)
         c.set(Calendar.HOUR, 1)
         c.set(Calendar.MINUTE, 0)
         db.insert("Todo", "name" to "点击ViewList查看待办列表", "ddl" to c.timeInMillis)
