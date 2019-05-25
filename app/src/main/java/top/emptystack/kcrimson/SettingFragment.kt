@@ -54,7 +54,7 @@ class SettingFragment : Fragment() {
                         defaultSharedPreferences.getInt("notification_minute", 0),
                         true
                     ).show()
-                    toast("你打开了提醒")
+                    toast("请设置提醒时间")
                 }
                 else -> {
                     cancelAlarm()

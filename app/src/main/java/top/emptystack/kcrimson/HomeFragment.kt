@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
                 Log.d("chart", "value:${1 / event.ddl.toFloat()}, label:${event.name}")
                 entries.add(PieEntry(1 / event.ddl.toFloat(), event.name))
             }
-            val closest = entries.last().label
+            val closest = entries.first().label
             val set = PieDataSet(entries, "事件名")
             set.colors = ColorTemplate.COLORFUL_COLORS.toList()
             set.setDrawValues(true)

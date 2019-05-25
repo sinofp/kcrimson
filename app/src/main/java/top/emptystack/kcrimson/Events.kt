@@ -31,5 +31,5 @@ fun getStoredEvents(context: Context?): List<Event> {
         }
     }
 
-    return events.sortedByDescending { it.ddl }
+    return events.sortedBy { it.ddl }
 }
